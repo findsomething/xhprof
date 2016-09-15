@@ -19,8 +19,13 @@ class XHProfTest extends \PHPUnit_Framework_TestCase
         $config = include __DIR__ . "/../app/config.php";
         $this->name = "test";
         $this->xhprof = new XHProf($this->name, true);
-        $this->xhprof->setLibPath($config['lib'])
-            ->setUrl($config['url'])->init();
+//        $this->xhprof->setLibPath($config['lib'])
+//            ->setUrl($config['url'])->init();
+        $this->xhprof = new XHProf($this->name, true, array(
+            'libPath' => $config['lib'],
+            'url' => $config['url'],
+        ));
+        $this->xhprof->init();
     }
 
     public function testStart()

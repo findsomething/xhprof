@@ -56,6 +56,12 @@
     
     $xhprof = new FSth\XHProf\XHProf('test', true);
     $xhprof->setLibPath($libPath)->set($url)->init();
+    or
+    $xhprof = new FSth\XHProf\XHProf('test', true, array(
+        'libPath' => $libPath,
+        'url' => $url
+    ));
+    $xhprof->init();
     
     $xhprof->start();
     $a = [];

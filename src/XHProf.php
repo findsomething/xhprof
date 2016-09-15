@@ -15,10 +15,11 @@ class XHProf
     protected $url;
     protected $logger;
 
-    public function __construct($name, $debug = false)
+    public function __construct($name, $debug = false, array $config = array())
     {
         $this->name = $name;
         $this->debug = $debug;
+        $this->setByConfig($config);
     }
 
     public function setLibPath($libPath)
@@ -78,6 +79,16 @@ class XHProf
             $this->logger->info($showUrl);
         } else {
             echo "{$showUrl}\n";
+        }
+    }
+
+    private function setByConfig(array $config)
+    {
+        if (!empty($config['libPath'])) {
+            $this->libPath = $config['libPath'];
+        }
+        if (!empty($config['url'])) {
+            $this->url = $config['url'];
         }
     }
 }

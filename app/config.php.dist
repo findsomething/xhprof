@@ -1,0 +1,11 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: lihan
+ * Date: 16/9/15
+ * Time: 20:42
+ */
+return array(
+    'url' => 'http://xhprof.edusoho.net/',
+    'lib' => '/var/www/xhprof/xhprof_lib/utils/'
+);

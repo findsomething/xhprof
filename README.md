@@ -55,7 +55,7 @@
     compose install 
     
     $xhprof = new FSth\XHProf\XHProf('test', true);
-    $xhprof->setLibPath($libPath)->set($url)->init();
+    $xhprof->setLibPath($libPath)->setUrl($url)->init();
     or
     $xhprof = new FSth\XHProf\XHProf('test', true, array(
         'libPath' => $libPath,

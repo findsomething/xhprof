@@ -7,4 +7,5 @@
 /phpunit.xml
 /phinx.php
 /composer.lock
+/.idea
 !.gitkeep

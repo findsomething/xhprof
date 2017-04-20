@@ -2,6 +2,7 @@
 
 ## install
 
+```
     pecl config-set preferred_state beta
     pecl install xhprof
     
@@ -36,22 +37,25 @@
         access_log /var/log/nginx/xhprof.access.log;
         error_log /var/log/nginx/xhprof.error.log;
     
-        location / git {
-            index index.php;
+        location / {
+          index index.php;
         }
     
-        location ~ ^/(index)\.php(/|$) {
-            fastcgi_pass   unix:/var/run/php5-fpm.sock;
+        location ~ ^/(index|callgraph)\.php(/|$) {
+            fastcgi_pass   127.0.0.1:9000;
             fastcgi_split_path_info ^(.+\.php)(/.*)$;
-            include fastcgi_params; 
+            include fastcgi_params;
             fastcgi_param  SCRIPT_FILENAME    $document_root$fastcgi_script_name;
             fastcgi_buffer_size 128k;
             fastcgi_buffers 8 128k;
+            fastcgi_index index.php;
         }
     }
-    
+```
+
 ## usage
 
+```
     compose install 
     
     $xhprof = new FSth\XHProf\XHProf('test', true);
@@ -72,5 +76,5 @@
     }
     array_diff($a, $b);
     $xhprof->stop();
-    
+```
  
